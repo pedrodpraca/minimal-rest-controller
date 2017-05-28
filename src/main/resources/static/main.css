@@ -1,0 +1,57 @@
+#loading {
+	text-align: center;
+}
+
+#input-busca {
+	margin-bottom: 1vh;
+}
+
+#radio-tipo {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+#login-page {
+	padding-top: 8vh;
+}
+
+#login-page img {
+	width: 100%;
+}
+
+#login-page * {
+	margin-bottom: 1vh;
+}
+
+#login-btn {
+	margin-top: 5vh;
+}
+
+#bottom-pagination-busca {
+	margin-top: 0px;
+}
+
+#tabela-resultados tr:hover {
+	cursor: pointer;
+}
+
+#dados-clinica .panel {
+	padding: 10%;
+	min-height: 64vh;
+	font-size: 1.4em;
+}
+
+#panel-contato {
+	padding-left: 4% !important;
+	padding-top: 2% !important;
+	padding-bottom: 0% !important;
+	padding-right: 0% !important;
+}
+
+.panel-medico {
+	margin-bottom: 2vh;
+}
+
+/* bug fix: https://angular-ui.github.io/bootstrap/ */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
