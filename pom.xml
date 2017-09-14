@@ -257,7 +257,7 @@
 	   <profile>
 		<id>openshift</id>
 		<build>
-		    <finalName>CLINICA</finalName>
+		    <finalName>ROOT</finalName>
 		    <plugins>
 			<plugin>
 			    <artifactId>maven-war-plugin</artifactId>
