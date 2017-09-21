@@ -4,10 +4,8 @@ import br.uva.model.clinica.especialidades.Especialidade;
 import br.uva.model.clinica.buscas.BuscaDLO;
 import br.uva.model.clinica.especialidades.EspecialidadeDLO;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -41,7 +39,7 @@ public class ClinicaMedicaDLO {
 		PageRequest req = new PageRequest(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "nome");
 		Page<ClinicaMedica> ret = null;
 		String uuid = buscaDLO.criar(query);
-		Collection<TipoAtendimento> tipos = new ArrayList();
+		Collection<TipoAtendimento> tipos = new ArrayList<TipoAtendimento>();
 
 		if (tipo != null) {
 			tipos.add(tipo);
@@ -110,7 +108,7 @@ public class ClinicaMedicaDLO {
 
 			Iterable<Especialidade> findAll = especialidadeDLO.findAll();
 
-			List<Especialidade> especialidades = new ArrayList();
+			List<Especialidade> especialidades = new ArrayList<Especialidade>();
 			findAll.forEach(especialidades::add); // JDK 8
 
 			for (int j = 0; j < nEspecialidades; j++) {
