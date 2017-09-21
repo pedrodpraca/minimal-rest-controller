@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 
@@ -43,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       public void configure(WebSecurity web) throws Exception {
           web
              .ignoring()
-             .antMatchers("/resources/**","/favicon.ico","/static/**","/js/**");
+             .antMatchers("/resources/**","/static/**");
       }
       
   	@Autowired
