@@ -2,6 +2,7 @@ package br.uva;
 
 import javax.sql.DataSource;
 
+import org.apache.logging.log4j.core.config.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -12,8 +13,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
-@Configuration
+@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 
@@ -36,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers("/admin.html","/admin/**").hasAuthority("ADMIN")
           	.and().
-	       	csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+	       	csrf().disable();
       }
       @Override
       public void configure(WebSecurity web) throws Exception {
