@@ -1,7 +1,7 @@
 package br.uva.model.user;
 
 
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -50,7 +50,7 @@ public class User {
 	@Column
 	@Temporal(TemporalType.DATE)
 	@NotNull
-	private Calendar data;
+	private Date data;
 	@Column
 	@NotEmpty
 	private String telefone;
@@ -129,10 +129,10 @@ public class User {
 	public void setCpf(String cpf){
 		this.cpf=cpf;
 	}
-	public Calendar getData(){
+	public Date getData(){
 		return data;
 	}
-	public void setData(Calendar data){
+	public void setData(Date data){
 		this.data=data;
 	}
 	public String getTelefone(){
