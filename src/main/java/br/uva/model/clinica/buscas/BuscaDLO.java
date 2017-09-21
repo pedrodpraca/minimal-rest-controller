@@ -1,9 +1,7 @@
 package br.uva.model.clinica.buscas;
 
-import br.uva.model.clinica.especialidades.Especialidade;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +24,13 @@ public class BuscaDLO {
 		List<String> input;
 
 		if(ref.length == 0) {
-			input = new ArrayList();
+			input = new ArrayList<String>();
 			input.add("");
 		} else {
 			input = Arrays.asList(ref);
 		}
 		
-		List<Busca> keywords = new ArrayList();
+		List<Busca> keywords = new ArrayList<Busca>();
 		String uuid = UUID.randomUUID().toString();
 		
 		for(String i : input) {

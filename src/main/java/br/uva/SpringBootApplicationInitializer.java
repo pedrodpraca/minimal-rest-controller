@@ -1,3 +1,4 @@
+
 package br.uva;
 
 import org.springframework.boot.SpringApplication;
@@ -18,11 +19,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan
 public class SpringBootApplicationInitializer extends SpringBootServletInitializer {
-    
+
     @Override
-    protected SpringApplicationBuilder
-            configure(SpringApplicationBuilder application) {
-        return application.sources(SpringBootApplicationInitializer.class
-        );
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(SpringBootApplicationInitializer.class);
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootApplicationInitializer.class, args);
+    }
+
 }

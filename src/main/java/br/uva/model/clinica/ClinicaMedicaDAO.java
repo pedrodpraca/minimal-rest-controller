@@ -8,7 +8,6 @@ package br.uva.model.clinica;
 import br.uva.model.clinica.especialidades.Especialidade;
 import java.util.Collection;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

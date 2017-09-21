@@ -75,7 +75,7 @@ public class ClinicaMedica implements Serializable {
 	
 	@JsonProperty("exames")
 	public List<String> getNomesExames() {
-		List<String> ret = new ArrayList();
+		List<String> ret = new ArrayList<String>();
 		if (exames != null && exames.size() > 0) {
 			for (ExameMedico e : exames) {
 				ret.add(e.getNome());
@@ -86,7 +86,7 @@ public class ClinicaMedica implements Serializable {
 
 	@JsonProperty("especialidades")
 	public List<String> getNomesEspecialidades() {
-		List<String> ret = new ArrayList();
+		List<String> ret = new ArrayList<String>();
 		if (especialidades != null && especialidades.size() > 0) {
 			for (Especialidade e : especialidades) {
 				ret.add(e.getNome());
@@ -96,10 +96,10 @@ public class ClinicaMedica implements Serializable {
 	}
 	
 	public ClinicaMedica() {
-		this.especialidades = new TreeSet();
-		this.telefones = new TreeSet();
-		this.exames = new ArrayList();
-		this.medicos = new ArrayList();
+		this.especialidades = new TreeSet<Especialidade>();
+		this.telefones = new TreeSet<String>();
+		this.exames = new ArrayList<ExameMedico>();
+		this.medicos = new ArrayList<MedicoClinica>();
 	}
 	
 	public String getNome() {
