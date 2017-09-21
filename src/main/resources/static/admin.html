@@ -1,23 +1,16 @@
-<div class="container"></div>
+<div class="col-sm-12 col-md-12">
     <h1>Ola {{vm.user}}!</h1>
-    <p>Voce esta logado!!</p>
-    <h3>Todos os usuarios registrados:</h3>
-    <ul>
-        <li ng-repeat="user in vm.allUsers">
-            {{user.username}} {{user.email}} {{user.password}} {{user.senhaconf}} {{user.nome}} {{user.sexo}} {{user.cpf}} DATA ***{{user.data}}*** {{user.telefone}}  ({{user.end}}) {{user.numend}} {{user.cep}} {{user.cidade}} {{user.estado}}
-        </li>
-    </ul>
+    <p>Voce esta logado como Administrador!!</p>
     <p>&nbsp;</p>
     <div class="row">
-        <div class="col-sm-6 col-md-6">
-            <button class="btn btn-primary">Cadastro de Medicos</button>
+        <div class="col-sm-12 col-md-4">
+            <button class="btn btn-primary">Cadastro de Clinicas</button>
             <button class="btn btn-primary">Cadastro de Especialidades</button>
-            <button class="btn btn-primary">Cadastro de Exames</button>
         </div>
     </div>
     <p>&nbsp;</p>
     <div class="row">
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-12 col-md-6">
             <a href="#!/" class="btn btn-primary">Inicio</a>
             <a class="btn btn-default" ng-click="vm.logout()">Logout</a></button>
         </div>

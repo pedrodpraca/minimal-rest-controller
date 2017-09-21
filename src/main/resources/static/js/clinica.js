@@ -24,7 +24,10 @@
 			})
 			.when("/registro", {
 				templateUrl: "registro.html",
-				controller: "RegistroController",
+			})
+			.when("/registro/admin", {
+				templateUrl: "registroadmin.html",
+				controller: "RegistroAdmController",
 				controllerAs: 'vm'
 			})
 			.when("/admin", {
@@ -168,9 +171,9 @@
 
 	});
 
-	app.controller('RegistroController', RegistroController);
-	RegistroController.$inject = ['$location', '$rootScope','$window', 'FlashService', 'UserService'];
-	function RegistroController($location, $rootScope, $window, FlashService, UserService) {
+	app.controller('RegistroAdmController', RegistroAdmController);
+	RegistroAdmController.$inject = ['$location', '$rootScope','$window', 'FlashService', 'UserService'];
+	function RegistroAdmController($location, $rootScope, $window, FlashService, UserService) {
 		var vm = this;
 
 		vm.register = register;
