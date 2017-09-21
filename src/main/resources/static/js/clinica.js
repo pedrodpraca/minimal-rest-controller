@@ -56,7 +56,8 @@
 			});
 	});
 
-	app.run(function ($rootScope, $interval, $location, $cookies, $http, $window) {
+	app.run(function ($rootScope, $interval) {
+
 		$rootScope._clearIntervals = function () {
 			if (_lastFetch) {
 				$interval.clear(_lastFetch);
@@ -168,8 +169,8 @@
 	});
 
 	app.controller('RegistroController', RegistroController);
-	RegistroController.$inject = ['$location', '$rootScope', 'FlashService', 'UserService'];
-	function RegistroController($location, $rootScope, FlashService, UserService) {
+	RegistroController.$inject = ['$location', '$rootScope','$window', 'FlashService', 'UserService'];
+	function RegistroController($location, $rootScope, $window, FlashService, UserService) {
 		var vm = this;
 
 		vm.register = register;
@@ -178,18 +179,23 @@
 			vm.dataLoading = true;
 			UserService.Create(vm.user)
 				.then(function (response) {
-					if (response.status == 201) {
-						FlashService.Success('Registro bem sucedido', true);
-						$location.path('/');
+					vm.dataLoading = false;
+					if (response.success) {
+						if(response.body.status == 201){
+							FlashService.Success('Registro bem sucedido', true);
+							$location.path('/');
+						}
 					} else {
+						FlashService.Error(response.message + ': Nome de usuario ja existe', true);
+						$window.scrollTo(0, 0);
 					}
 				});
 		}
 	}
 
 	app.controller('LoginController', LoginController);
-	LoginController.$inject = ['$http', '$location', '$rootScope', 'FlashService'];
-	function LoginController($http, $location, $rootScope, FlashService) {
+	LoginController.$inject = ['$http', '$location', '$rootScope', 'FlashService', '$window'];
+	function LoginController($http, $location, $rootScope, FlashService, $window) {
 
 		var vm = this
 
@@ -226,8 +232,8 @@
 		};
 
 		vm.logout = function() {
-			$http.post('logout', {}).finally(function() {
-				$location.path("/");
+			$http.post('/logout', {}).finally(function() {
+			  $window.location.reload();
 			  $rootScope.authenticated = false;
 			});
 		  }
@@ -235,14 +241,15 @@
 	}
 
 	app.controller('AdminController', AdminController);
-	AdminController.$inject = ['$rootScope', '$location', '$http', 'UserService'];
-    function AdminController( $rootScope, $location, $http,  UserService) {
+	AdminController.$inject = ['$rootScope', '$location', '$http', 'UserService','$window'];
+    function AdminController( $rootScope, $location, $http,  UserService, $window) {
         var vm = this;
         vm.allUsers = [];
 
 		vm.logout = function() {
-			$http.post('logout', {}).finally(function() {
-				$location.path("/");
+			$http.post('/logout', {}).finally(function() {
+			  $location.path("/");
+			  $window.location.reload();
 			  $rootScope.authenticated = false;
 			});
 		}
@@ -260,7 +267,6 @@
 					vm.user = response.data.name;
 				} else {
 					$rootScope.authenticated = false;
-					$location.path("/");
 				}
 			});
         }
@@ -268,7 +274,7 @@
         function loadAllUsers() {
             UserService.GetAll()
                 .then(function (users) {
-                    vm.allUsers = users.data;
+                    vm.allUsers = users.body.data;
                 });
         }
     }

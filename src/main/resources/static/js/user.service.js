@@ -43,7 +43,7 @@
         }
  
         function handleSuccess(res) {
-            return res;
+            return { success: true, body : res };
         }
  
         function handleError(error) {
