@@ -1,0 +1,58 @@
+<div style="display: none;" id="loading" class="possibilidade-busca">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+</div>
+
+<div id="dados-clinica">
+	<h1>{{ _clinica.nome}}</h1>
+	<h3>Rede {{ _clinica.rede}}</h3>
+	<h3>{{ _clinica.endereco}}</h3>
+
+	<div class="col-md-12">
+		<div class="col-md-4">
+			<h2>Especialidades</h2>
+			<div class="panel panel-default">
+				<div ng-repeat="especialidade in _clinica.especialidades">{{ especialidade}}</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<h2>Exames</h2>
+			<div class="panel panel-default">
+				<div ng-repeat="exame in _clinica.exames">{{ exame}}</div>
+				<div ng-hide="_clinica.exames.length">A clínica não realiza nenhum tipo de exame.</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<h2>Quadro Médico</h2>
+			<div class="panel panel-default">
+				<div ng-repeat="medico in _clinica.medicos">
+					<div class="panel-medico">
+						<div>{{ medico.titulo}} {{medico.nome}}</div>
+						<div>CRM: {{medico.crm}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-12">
+	
+		<div class="col-md-12">
+		
+			<h2>Contato</h2>
+			<div class="panel panel-default" id="panel-contato">
+				<h3>Telefones</h3>
+				<div ng-repeat="telefone in _clinica.telefones">{{ telefone}}</div>
+				<h3>Email</h3>
+				<div><a ng-href="{{'mailto:' + _clinica.email }}">{{ _clinica.email }}</a></div>
+			</div>
+
+		</div>
+			
+	</div>
+	
+</div>
+
+<a href="#!/busca"><h3>Retornar a página de busca</h3></a>
+<a href="#!/"><h3>Retornar a página inicial</h3></a>
