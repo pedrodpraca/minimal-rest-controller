@@ -1,19 +1,13 @@
-<div class="col-sm-12 col-md-12">
-    <h1>Ola {{vm.user}}!</h1>
-    <p>Voce esta logado como Administrador!!</p>
-    <p>&nbsp;</p>
-    <div class="row">
-        <div class="col-sm-12 col-md-4">
-            <button class="btn btn-primary">Cadastro de Clinicas</button>
-            <button class="btn btn-primary">Cadastro de Especialidades</button>
-        </div>
+<h1>Ola {{vm.user}}!</h1>
+<p>Voce esta logado como Administrador!!</p>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <ul class="nav navbar-nav">
+            <li role="cadastroadm"><a>Cadastro de Clinicas</a></li>
+            <li role="cadastroadm"><a>Cadastro de Especialidades</a></li>
+            <li role="voltar"><a href="#!/">Voltar</a></li>
+        </ul>
+        <button class="btn btn-default navbar-btn" ng-click="vm.logout()">Logout</button>
     </div>
-    <p>&nbsp;</p>
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <a href="#!/" class="btn btn-primary">Inicio</a>
-            <a class="btn btn-default" ng-click="vm.logout()">Logout</a></button>
-        </div>
-    </div>
-    <p>&nbsp;</p>
-</div>
+</nav>

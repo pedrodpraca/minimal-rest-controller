@@ -45,7 +45,6 @@
 				return {
 					'responseError': function(rejection) {
 						if (rejection.status==401) {
-							FlashService.Error('Voce presisa estar logado para acessar esta pagina', true);
 							$location.path('/');
 
 						}
